@@ -63,10 +63,8 @@ while (true) {
             let fee = Number(readlineSync.question("Enter the adoption fee: "));
             if (!animal || fee < 0) {
                 throw new Error("Invalid animal name or adoption fee!");
-                // console.log("Invalid animal name or adoption fee!");
             } else if (animals.indexOf(animal) !== -1) {
                 throw new Error('Oops! That animal is already in our system. Please try again.');
-                // console.log('Oops! That animal is already in our system. Please try again.');
             } else {
                 addAnimal(animal, fee);
                 console.log(`${animal} added with a fee of $${fee}.`);
@@ -75,13 +73,11 @@ while (true) {
             let animal = readlineSync.question("Enter the animal's name to find its adoption fee: ");
             if (animals.indexOf(animal) === -1) {  // added conditional here to see if animal exists in the array.
                 throw new Error(`Oops! ${animal} isn't in our records. Please try again.`);
-                // console.log(`Oops! ${animal} isn't in our records. Please try again.`);
             } else {
                 console.log(`${animal}'s adoption fee is $${getAdoptionFee(animal)}.`);
             }
         } else {
             throw new Error(`Oops! ${animal} isn't in our records. Please try again.`);
-            // console.log(`Oops! ${animal} isn't in our records. Please try again.`);
         }
     } catch (err) { // added the catch block to display the error inside loop so it resets
         console.log(err.message);
